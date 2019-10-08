@@ -27,9 +27,49 @@ public class LinkedList {
         }
         return null;
     }
+    public boolean remove(int data){
+        Node thisNode = this.root;
+        Node prevNode = null;
+        while(thisNode != null ){
+            if(thisNode.getData()==data){
+                if (prevNode != null)
+                    prevNode.setNextNode(thisNode.getNextNode());
+                else
+                    this.root = null;
+                this.setSize(this.getSize()-1);
+                return true;
+            }
+            prevNode = thisNode;
+            thisNode = thisNode.getNextNode();
+        }
+        return false;
+    }
+
+    public void printAll(){
+        Node thisNode = this.root;
+        System.out.println("All the nodes in the linked list: ");
+        while(thisNode != null){
+            System.out.print(thisNode.getData()+" ");
+            thisNode = thisNode.getNextNode();
+        }
+        System.out.println();
+    }
+
+    //Test code
     public static void main(String[] args){
-
-
+        LinkedList list = new LinkedList();
+        System.out.println(list.getSize());
+        list.add(12);
+        System.out.println(list.getSize());
+        list.add(86);
+        list.add(54);
+        list.add(3142);
+        list.printAll();
+        System.out.println(list.find(54).getData());
+        list.remove(3142);
+        list.printAll();
+        list.add(314);
+        list.printAll();
     }
 
     //Node class
