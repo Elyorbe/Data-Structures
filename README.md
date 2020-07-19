@@ -1,2 +1,2 @@
-# Data-Structures
-Data Structures implementations
+# Data-Structures-and-Algorithms 
+Data Structures and Algorithms implementations
