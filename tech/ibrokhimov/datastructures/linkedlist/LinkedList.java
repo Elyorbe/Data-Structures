@@ -1,4 +1,4 @@
-package tech.ibrokhimov;
+package tech.ibrokhimov.datastructures.linkedlist;
 public class LinkedList {
     Node root;
     int size;

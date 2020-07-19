@@ -15,6 +15,8 @@ public class ResizingArrayStack<Item> implements Stack<Item> {
 
     @Override
     public Item pop() {
+        if(N <= 0)
+            return null;
         Item item = a[--N];
         a[N] = null; //Avoid loitering
         if(N > 0 && N == a.length/4)
