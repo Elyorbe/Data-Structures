@@ -1,8 +1,9 @@
-package tech.ibrokhimov.datastructures.unionfind;
+package tech.ibrokhimov.algorithms.unionfind;
 
 public interface UF {
-     void unionFind();
-     int find(int p);
+     void union(int p, int q);
+
      boolean connected(int p, int q);
+
      int count();
 }
