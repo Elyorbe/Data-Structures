@@ -1,5 +1,7 @@
 package tech.ibrokhimov.algorithms.sorting;
 
+import tech.ibrokhimov.util.ArrayUtils;
+
 public class AdvancedSorts {
 
     public static void mergeSort(int[] nums) {
@@ -37,5 +39,31 @@ public class AdvancedSorts {
             nums[k++] = left[i++];
         while(j < right.length)
             nums[k++] = right[j++];
+    }
+
+    public static void quickSort(int[] nums){
+        quickSort(nums, 0, nums.length-1);
+    }
+
+    private static void quickSort(int[] nums, int start, int end){
+        if(start < end) {
+            int pIndex = partition(nums, start, end);
+            quickSort(nums, start, pIndex - 1);
+            quickSort(nums, pIndex + 1, end);
+        }
+    }
+    private static int partition(int[] nums, int start, int end) {
+        int partitionIndex = start - 1;
+        int pivot = nums[end];
+
+        for(int i = start; i < end; i++) {
+            if(nums[i] <= pivot){
+                partitionIndex++;
+                ArrayUtils.swapInt(nums, partitionIndex, i);
+            }
+        }
+        ArrayUtils.swapInt(nums, partitionIndex+1, end);
+
+        return partitionIndex+1;
     }
 }
